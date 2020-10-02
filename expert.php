@@ -59,6 +59,7 @@ new_exercise(6);
 // put a return instead of an echo in the randomHeroName function
 // fixed the syntax error of implode
 // made a variable of the implode and return it
+// put -1 behind the count() in randomHeroNames
 $arr = [];
 
 
@@ -87,7 +88,7 @@ function randomHeroName()
     $hero_firstnames = ["captain", "doctor", "iron", "Hank", "ant", "Wasp", "the", "Hawk", "Spider", "Black", "Carol"];
     $hero_lastnames = ["America", "Strange", "man", "Pym", "girl", "hulk", "eye", "widow", "panther", "daredevil", "marvel"];
     $heroes = [$hero_firstnames, $hero_lastnames];
-    $randname = $heroes[rand(0,count($heroes))][rand(0, 10)];
+    $randname = $heroes[rand(0,count($heroes)-1)][rand(0, 10)];
 
     return $randname;
 }
