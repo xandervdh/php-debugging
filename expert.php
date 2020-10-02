@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
@@ -9,7 +9,8 @@ error_reporting(E_ALL);
 // $x isn't defined so i put it in the function arguments
 echo "Exercise 1 starts here:";
 
-function new_exercise($x) {
+function new_exercise($x)
+{
     $block = "<br/><hr/><br/><br/>Exercise $x starts here:<br/>";
     echo $block;
 }
@@ -34,8 +35,8 @@ new_exercise(4);
 // === Exercise 4 ===
 // there was a mistake in the foreach so I added the & in front of day
 
-foreach($week as &$day) {
-    $day = substr($day, 0, strlen($day)-3);
+foreach ($week as &$day) {
+    $day = substr($day, 0, strlen($day) - 3);
 }
 
 print_r($week);
@@ -64,14 +65,15 @@ new_exercise(6);
 $arr = [];
 
 
-function combineNames($str1 = "", $str2 = "") {
+function combineNames($str1 = "", $str2 = "")
+{
     $params = [$str1, $str2];
-    foreach($params as &$param) {
+    foreach ($params as &$param) {
         if ($param == "") {
             $param = randomHeroName();
         }
     }
-    return  implode(" - ", $params);
+    return implode(" - ", $params);
 
 }
 
@@ -80,7 +82,7 @@ function randomHeroName()
     $hero_firstnames = ["captain", "doctor", "iron", "Hank", "ant", "Wasp", "the", "Hawk", "Spider", "Black", "Carol"];
     $hero_lastnames = ["America", "Strange", "man", "Pym", "girl", "hulk", "eye", "widow", "panther", "daredevil", "marvel"];
     $heroes = [$hero_firstnames, $hero_lastnames];
-    return $heroes[rand(0,count($heroes)-1)][rand(0, 10)];
+    return $heroes[rand(0, count($heroes) - 1)][rand(0, 10)];
 
 }
 
@@ -89,9 +91,11 @@ echo "Here is the name: " . combineNames();
 new_exercise(7);
 // used intval() to make an integer from the string that date() returns
 // put echo instead of return in the function copyright
-function copyright(int $year) {
+function copyright(int $year)
+{
     echo "&copy; $year BeCode";
 }
+
 //print the copyright
 copyright(intval(date('Y')));
 
@@ -99,8 +103,9 @@ new_exercise(8);
 // changed the || for && so the email and password needs to be the same
 // put smith in the first return because u can't reach the second return
 // cleaned it up a bit by adding <br>
-function login(string $email, string $password) {
-    if($email == 'john@example.be' && $password == 'pocahontas') {
+function login(string $email, string $password)
+{
+    if ($email == 'john@example.be' && $password == 'pocahontas') {
         return 'Welcome John Smith<br>';
     }
     return 'No access<br>';
@@ -114,3 +119,25 @@ echo login('john@example.be', 'dfgidfgdfg');
 //no access
 echo login('wrong@example.be', 'wrong');
 //you can change things again!
+
+new_exercise(9);
+//strpos returns an integer or false so i changed == true to !== false
+//also added echo before the function is called
+function isLinkValid(string $link) {
+    $unacceptables = array('https:','.doc','.pdf', '.jpg', '.jpeg', '.gif', '.bmp', '.png');
+
+    foreach ($unacceptables as $unacceptable) {
+        if (strpos($link, $unacceptable) !== false) {
+            return 'Unacceptable Found<br />';
+        }
+    }
+    return 'Acceptable<br />';
+}
+//invalid link
+echo isLinkValid('http://www.google.com/hack.pdf');
+//invalid link
+echo isLinkValid('https://google.com');
+//VALID link
+echo isLinkValid('http://google.com');
+//VALID link
+echo isLinkValid('http://google.com/test.txt');
