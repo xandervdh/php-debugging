@@ -87,8 +87,10 @@ function randomHeroName()
 echo "Here is the name: " . combineNames();
 
 new_exercise(7);
+// used intval() to make an integer from the string that date() returns
+// put echo instead of return in the function copyright
 function copyright(int $year) {
-    return "&copy; $year BeCode";
+    echo "&copy; $year BeCode";
 }
 //print the copyright
-copyright(date('Y'));
+copyright(intval(date('Y')));
