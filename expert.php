@@ -60,6 +60,7 @@ new_exercise(6);
 // fixed the syntax error of implode
 // made a variable of the implode and return it
 // put -1 behind the count() in randomHeroNames
+// removed randomGenerate because it is not needed
 $arr = [];
 
 
@@ -70,17 +71,8 @@ function combineNames($str1 = "", $str2 = "") {
             $param = randomHeroName();
         }
     }
-    $combinedName =  implode(" - ", $params);
-    return $combinedName;
-}
+    return  implode(" - ", $params);
 
-
-function randomGenerate($arr, $amount) {
-    for ($i = $amount; $i > 0; $i--) {
-        array_push($arr, randomHeroName());
-    }
-
-    return $amount;
 }
 
 function randomHeroName()
@@ -88,9 +80,15 @@ function randomHeroName()
     $hero_firstnames = ["captain", "doctor", "iron", "Hank", "ant", "Wasp", "the", "Hawk", "Spider", "Black", "Carol"];
     $hero_lastnames = ["America", "Strange", "man", "Pym", "girl", "hulk", "eye", "widow", "panther", "daredevil", "marvel"];
     $heroes = [$hero_firstnames, $hero_lastnames];
-    $randname = $heroes[rand(0,count($heroes)-1)][rand(0, 10)];
+    return $heroes[rand(0,count($heroes)-1)][rand(0, 10)];
 
-    return $randname;
 }
 
 echo "Here is the name: " . combineNames();
+
+new_exercise(7);
+function copyright(int $year) {
+    return "&copy; $year BeCode";
+}
+//print the copyright
+copyright(date('Y'));
