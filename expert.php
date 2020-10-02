@@ -29,3 +29,13 @@ new_exercise(3);
 
 $str = 'Debugged ! Also very fun';
 echo substr($str, 0, 10);
+
+new_exercise(4);
+// === Exercise 4 ===
+// there was a mistake in the foreach so I added the & in front of day
+
+foreach($week as &$day) {
+    $day = substr($day, 0, strlen($day)-3);
+}
+
+print_r($week);
