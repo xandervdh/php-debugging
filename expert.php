@@ -144,8 +144,7 @@ echo isLinkValid('http://google.com/test.txt');
 
 new_exercise(10);
 
-//Filter the array $areTheseFruits to only contain valid fruits
-//do not change the arrays itself
+//fixed it by putting the count') in a variable
 $areTheseFruits = ['apple', 'bear', 'beef', 'banana', 'cherry', 'tomato', 'car'];
 $validFruits = ['apple', 'pear', 'banana', 'cherry', 'tomato'];
 //from here on you can change the code
