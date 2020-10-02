@@ -42,8 +42,8 @@ print_r($week);
 
 new_exercise(5);
 // === Exercise 5 ===
-// changed the second parameter of the for loop from $letter <= 'z' to $letter != 'aa'
-//!= means does not equal to
+// looked at the errors and warnings in phpstorm and changed it
+//
 
 $arr = [];
 for ($letter = 'a'; $letter != 'aa'; $letter++) {
@@ -51,3 +51,45 @@ for ($letter = 'a'; $letter != 'aa'; $letter++) {
 }
 
 print_r($arr); // Array ([0] => a, [1] => b, [2] => c, ...) a-z alfabetical array
+
+new_exercise(6);
+// === Final exercise ===
+// put a semicolon behind $hero_lastnames
+// fixed the foreach bug
+// put a return instead of an echo in the randomHeroName function
+// fixed the syntax error of implode
+// made a variable of the implode and return it
+$arr = [];
+
+
+function combineNames($str1 = "", $str2 = "") {
+    $params = [$str1, $str2];
+    foreach($params as &$param) {
+        if ($param == "") {
+            $param = randomHeroName();
+        }
+    }
+    $combinedName =  implode(" - ", $params);
+    return $combinedName;
+}
+
+
+function randomGenerate($arr, $amount) {
+    for ($i = $amount; $i > 0; $i--) {
+        array_push($arr, randomHeroName());
+    }
+
+    return $amount;
+}
+
+function randomHeroName()
+{
+    $hero_firstnames = ["captain", "doctor", "iron", "Hank", "ant", "Wasp", "the", "Hawk", "Spider", "Black", "Carol"];
+    $hero_lastnames = ["America", "Strange", "man", "Pym", "girl", "hulk", "eye", "widow", "panther", "daredevil", "marvel"];
+    $heroes = [$hero_firstnames, $hero_lastnames];
+    $randname = $heroes[rand(0,count($heroes))][rand(0, 10)];
+
+    return $randname;
+}
+
+echo "Here is the name: " . combineNames();
