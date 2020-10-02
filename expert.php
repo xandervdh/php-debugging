@@ -22,3 +22,10 @@ $week = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "su
 $monday = $week[0];
 
 echo $monday;
+
+new_exercise(3);
+// === Exercise 3 ===
+// used single quotes instead of double
+
+$str = 'Debugged ! Also very fun';
+echo substr($str, 0, 10);
